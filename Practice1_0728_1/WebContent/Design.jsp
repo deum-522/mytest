@@ -9,8 +9,7 @@
 
 *{margin:auto}
 a{text-decoration:none; color:black}
-div{text-align:center;line-height:80px;float:left;height:80px}
-
+.design {text-align:center;line-height:80px;float:left;height:80px}
 .top{width:99%; margin:20px}
 .left{width:33%;}
 .title{width:33%;}
@@ -24,20 +23,20 @@ div{text-align:center;line-height:80px;float:left;height:80px}
 </head>
 <body>
 <!--div{border:solid black 1px;}-->
-<div class="top">
-	<div class="left"> 
-		<div id="mem_info">
+<div class="design top">
+	<div class="design left"> 
+		<div class="design" id="mem_info">
 			<a href="memberInfo.jsp">회원정보</a>
 		</div>	
 	</div>
-	<div class="title">
+	<div class="design title">
 		<h1><a href="index.jsp">Kitri</a></h1>
 	</div>
-	<div class="right">
-		<div id="join">
+	<div class="design right">
+		<div class="design" id="join">
 			<a href="join.jsp">회원가입</a>
 		</div>
-		<div id="log_state">
+		<div class="design" id="log_state">
 			<a href="login.jsp">로그인</a>
 		</div>
 	</div>
