@@ -1,28 +1,25 @@
 package reply.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.ReplyVO;
 import reply.dao.Dao;
 
 /**
- * Servlet implementation class ListController
+ * Servlet implementation class DelReplyController
  */
-@WebServlet("/ListController")
-public class ListController extends HttpServlet {
+@WebServlet("/DelReplyController")
+public class DelReplyController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListController() {
+    public DelReplyController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,30 +33,12 @@ public class ListController extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		
 		Dao dao = new Dao();
-		//int boardseq = 1;
-		int boardseq = Integer.parseInt(request.getParameter("sequence"));
-		ArrayList<ReplyVO> temp = dao.selectAll(boardseq);
-		ArrayList<ReplyVO> list = new ArrayList<ReplyVO>();
-		int pagenum = 1;
 		
-		if(request.getParameter("pagenum") != null ) {
-			pagenum = Integer.parseInt(request.getParameter("pagenum"));
-		}
+		int replyseq = Integer.parseInt(request.getParameter("replyseq"));
 		
-		int page = Integer.parseInt((String)request.getParameter("colcnt")) * (pagenum - 1);
-		int last = page + 10; 
-		if(page + 10 > temp.size()) {
-			last = temp.size();
-		}
+		dao.delete(replyseq);
 		
-		for(int i = page; i < last; i++ ) {
-			list.add(temp.get(i));
-		}		
-		
-		
-		request.setAttribute("list", list);
-		int size = ( ( temp.size() - 1 ) / 10 )+ 1;
-		request.setAttribute("size", size);
+		response.sendRedirect(request.getHeader("referer"));
 	}
 
 	/**

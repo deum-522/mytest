@@ -28,7 +28,7 @@
 <body id="page-top">
 <!-- id="page-top" 왜 썼는지 모르겠음. 오류나면 확인 필수 -->
 
-<jsp:include page ="./index.jsp" /> 
+<jsp:include page ="./Menu.jsp" /> 
   <!-- Page Wrapper -->
   <div id="wrapper">
 
@@ -46,7 +46,7 @@
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
-            <div class="card-header py-3">
+            <div class="card-header py-3" style=" margin-left: 0px; margin-right: 0px; text-align:center">
               <h6 class="m-0 font-weight-bold text-dark">회원 정보</h6>
             </div>
             <div class="card-body">
@@ -73,7 +73,7 @@
 	                  <td>${m.getAddress() }</td>
 	                  <td>${m.getStatus() }</td>
 	                  <td>${m.getCls() }</td>
-	                  <td><a href="${pageContext.request.contextPath }/MemberDelController?id=${m.getId() }">삭제</a></td>
+	                  <td><a href="${pageContext.request.contextPath }/DelController?id=${m.getId() }">삭제</a></td>
 				   </tr>
             	   </c:if>
          		   </c:forEach>
